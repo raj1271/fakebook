@@ -1,0 +1,88 @@
+/* General body styling */
+body {
+  background-color: #f0f2f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card appearance */
+.card, .feed-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border: none;
+}
+
+/* Post header (user avatar + name) */
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.post-header img {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+
+/* Navbar brand bold */
+.navbar-brand {
+  font-weight: bold;
+}
+
+/* Notification bell button */
+.notification-btn {
+  position: relative;
+}
+
+/* Red badge for notification count */
+.notification-badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: red;
+  color: white;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 50%;
+  min-width: 16px;
+  text-align: center;
+}
+.notification-badge.hidden {
+  visibility: hidden;
+}
+
+/* Post actions (like/comment/share buttons) */
+.post-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+.post-actions button {
+  background: none;
+  border: none;
+  color: #555;
+  font-weight: 500;
+}
+.post-actions button:hover {
+  color: #1877f2;
+  cursor: pointer;
+}
+
+/* Input spacing for post form */
+form textarea {
+  resize: none;
+}
+
+/* Dropdown animation */
+.dropdown-menu {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

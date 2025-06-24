@@ -1,0 +1,44 @@
+{% load static %}
+<head>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<!-- templates/navbar.html -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      {% if request.session.admin_name %}
+        AdminPanel
+      {% elif request.session.User_name %}
+        MyFeed
+      {% else %}
+        MySite
+      {% endif %}
+    </a>
+
+    <div class="d-flex align-items-center">
+      {% if request.session.admin_name %}
+        <div class="me-3 text-white">Welcome, {{ request.session.admin_name }}</div>
+      {% elif request.session.User_name %}
+        <div class="me-3 text-white">Hello, {{ request.session.User_name }}</div>
+      {% endif %}
+
+      <!-- Notification Dropdown -->
+      <div class="dropdown me-3">
+        <button class="btn btn-light notification-btn dropdown-toggle" type="button" id="notifBtn" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-bell"></i>
+          <span class="notification-badge hidden" id="notif-count">0</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notifBtn" id="notif-panel">
+          <li><span class="dropdown-item-text text-muted">No new notifications</span></li>
+        </ul>
+      </div>
+
+      <a href="{% url 'logout' %}" class="btn btn-outline-light ms-3">Logout</a>
+    </div>
+  </div>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
